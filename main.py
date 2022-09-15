@@ -1,49 +1,28 @@
+""" 
+CSC120: Object Oriented Programming 
+A2: Tseegi Nyamdorj
+Collaborated with Tina Chang
+"""
+
 # Import a few useful containers from the typing module
 from calendar import c
 from typing import Dict, Union
 
-# Import the functions we wrote in procedural_resale_shop.py
-from procedural_resale_shop import buy, update_price, sell, print_inventory, refurbish
-
+#Import functions from two Objects
 from computer import *
 from oo_resale_shop import *
 
-""" This helper function takes in a bunch of information about a computer,
-    and packages it up into a python dictionary to make it easier to store
-
-    Note: because python is dynamically typed, you may not be used to seeing 
-    explicit data types (str, int, etc.) listed in a python function. We're 
-    going to go the extra step, because when we get to Java it'll be required!
-"""
-"""
-def create_computer(description: str,
-                    processor_type: str,
-                    hard_drive_capacity: int,
-                    memory: int,
-                    operating_system: str,
-                    year_made: int,
-                    price: int):
-        return {'description': description,
-            'processor_type': processor_type,
-            'hard_drive_capacity': hard_drive_capacity,
-            'memory': memory,
-            'operating_system': operating_system,
-            'year_made': year_made,
-            'price': price}      
-"""
-
 def main():
-    
+    """
+    Create a new computer
+    Test out functions of resale shop by utilizing the new computer
+    """
+
     # First, let's make a computer
     computer = Computer("Mac Pro (Late 2013)",
         "3.5 GHc 6-Core Intel Xeon E5",
         1024, 64,
         "macOS Big Sur", 2013, 1500)
-
-    #computer.create_computer("Mac Pro (Late 2013)",
-    #    "3.5 GHc 6-Core Intel Xeon E5",
-    #    1024, 64,
-    #    "macOS Big Sur", 2013, 1500)
 
     # Print a little banner
     print("-" * 21)
@@ -51,23 +30,23 @@ def main():
     print("-" * 21)
 
     # Add it to the resale store's inventory
-    shop = ResaleShop()
-    computer_id = shop.buy(computer)
+    shop = ResaleShop() #Creating object of the class ResaleShop
+    computer_id = shop.buy(computer) #Call the buy method from shop
 
-    # Make sure it worked by checking inventory
+    #Call print inventory method to check
     shop.print_inventory()
 
-    # Now, let's refurbish it
+    #Refurbish method to update OS
     shop.refurbish(computer_id, 
                     "MacOS Monterey")
 
-    # Make sure it worked by checking inventory
+    #Call print inventory method to check
     shop.print_inventory()
     
-    # Now, let's sell it!
+    #Sell method to sell the computer
     shop.sell(computer_id)
     
-    # Make sure it worked by checking inventory
+    #Call print inventory method to check
     shop.print_inventory()
 
 # Calls the main() function when this file is run

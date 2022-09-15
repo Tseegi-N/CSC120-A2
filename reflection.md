@@ -1,3 +1,5 @@
 Use this file to record your reflection on this assignment. 
 
 What worked, what didn't, what advice would you give someone taking this course in the future?
+
+For my case, it wasn't really hard to transfer imperative code to OOP because in CSC120, I loved working with class and objects. Also, I remember heavily focusing on refurnishing my code on the final project of CSC120 that everything came back pretty easily. The main problem that I had with this assignment was that I couldn't make the 'computer' class subscriptable, so I spent a lot of time figuring that out. Initially because I wanted to keep the classes seperate from each other as they're independent, I refused to import 'computer' on resale shop file, so I added parameters to resale's methods which made the code even more complex. Thus, during thursday class, I asked Professor Crouser regarding the problem and figured out I could just use one of class on the other one. After class, Tina and I spend the afternoon marking bugs and debugging. My advice would be to skim and go over past CSC materials and ask for help as it's available. 
