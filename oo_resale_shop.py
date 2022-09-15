@@ -1,4 +1,5 @@
 from typing import Dict, Union, Optional
+from computer import *
 class ResaleShop:
 
     # What attributes will it need?
@@ -29,7 +30,7 @@ class ResaleShop:
         self.inventory[self.itemID] = computer
 
         # Add it to the resale store's inventory
-        print("Buying", computer['description'])
+        print("Buying", computer.get_attribute("description"))
         print("Adding to inventory...")
         print("Done.\n")
         return self.itemID
@@ -66,7 +67,7 @@ class ResaleShop:
             # For each item
             for item_id in self.inventory:
                 # Print its details
-                print(f'Item ID: {item_id} : {self.inventory[item_id]}')
+                print(f'Item ID: {item_id} : {self.inventory[self.itemID]}')
         else:
             print("No inventory to display.")
         print("Done.\n")
@@ -76,17 +77,17 @@ class ResaleShop:
             computer = self.inventory[item_id] # locate the computer
             print("Refurbishing Item ID:", item_id, ", updating OS to", new_os)
             print("Updating inventory...")
-            if int(computer["year_made"]) < 2000:
-                computer["price"] = 0 # too old to sell, donation only
-            elif int(computer["year_made"]) < 2012:
-                computer["price"] = 250 # heavily-discounted price on machines 10+ years old
-            elif int(computer["year_made"]) < 2018:
-                computer["price"] = 550 # discounted price on machines 4-to-10 year old machines
+            if int(computer.get_attribute("year_made")) < 2000:
+                computer.update_attribute("price", 0) # too old to sell, donation only
+            elif int(computer.get_attribute("year_made")) < 2012:
+                computer.update_attribute("price", 250) # heavily-discounted price on machines 10+ years old
+            elif int(computer.get_attribute("year_made")) < 2018:
+                computer.update_attribute("price", 550) # discounted price on machines 4-to-10 year old machines
             else:
-                computer["price"] = 1000 # recent stuff
+                computer.update_attribute("price", 1000) # recent stuff
 
             if new_os is not None:
-                computer["operating_system"] = new_os # update details after installing new OS
+                computer.update_attribute("operating_system", new_os) # update details after installing new OS
         else:
             print("Item", item_id, "not found. Please select another item to refurbish.")
         print("Done.\n")
